@@ -41,7 +41,7 @@ The project uses the Intel MobileODT Cervical Cancer Screening dataset, which co
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/federated-cervical-cancer-detection.git
+git clone https://github.com/RD-Bhowmik/fedarated_learning.git
 cd federated-cervical-cancer-detection
 ```
 
@@ -81,11 +81,7 @@ python src/web_app/app.py
 
 This is a thesis project. Please contact the repository owner for contribution guidelines.
 
-## License
-
-[Specify your license]
 
 ## Acknowledgments
 
 - Intel MobileODT for providing the dataset
-- [Other acknowledgments] 
