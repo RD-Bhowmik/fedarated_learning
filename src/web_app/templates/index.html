@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Federated Learning Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .header {
+            padding-bottom: 1rem;
+            border-bottom: .05rem solid #e5e5e5;
+            margin-bottom: 2rem;
+        }
+        .visualization-card {
+            margin-bottom: 1rem;
+        }
+        .visualization-img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-center">Federated Learning Dashboard</h1>
+            <p class="text-center lead">View metrics and visualizations from the federated learning process</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2>Metrics</h2>
+                    </div>
+                    <div class="card-body">
+                        {% if metrics_data is not none %}
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            {% for column in metrics_data.columns %}
+                                                <th>{{ column }}</th>
+                                            {% endfor %}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for _, row in metrics_data.iterrows() %}
+                                            <tr>
+                                                {% for column in metrics_data.columns %}
+                                                    <td>{{ row[column] }}</td>
+                                                {% endfor %}
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-warning">
+                                No metrics data available. Please run the federated learning process first.
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2>Visualizations</h2>
+                    </div>
+                    <div class="card-body">
+                        {% if visualization_files %}
+                            <div class="row">
+                                {% for file in visualization_files %}
+                                    <div class="col-md-6 visualization-card">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>{{ file }}</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <img src="{{ url_for('visualizations', filename=file) }}" class="visualization-img" alt="{{ file }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="alert alert-warning">
+                                No visualization files available. Please run the federated learning process first.
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2>Models</h2>
+                    </div>
+                    <div class="card-body">
+                        {% if model_files %}
+                            <div class="list-group">
+                                {% for file in model_files %}
+                                    <a href="{{ url_for('models', filename=file) }}" class="list-group-item list-group-item-action">
+                                        {{ file }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="alert alert-warning">
+                                No model files available. Please run the federated learning process first.
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

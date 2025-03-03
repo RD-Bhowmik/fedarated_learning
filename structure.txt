@@ -1,0 +1,27 @@
+├── src/
+│   ├── data/           # Data loading and preprocessing
+│   │   ├── preprocess.py  # Data preprocessing
+│   │   ├── dataloader.py  # Data loading utilities
+│   │   └── __init__.py
+│   ├── models/         # Model architectures
+│   │   ├── model.py       # CNN model implementations
+│   │   └── __init__.py
+│   ├── federated/      # Federated learning implementation
+│   │   ├── client.py      # Federated learning client
+│   │   ├── server.py      # Federated learning server
+│   │   ├── run_federated.py  # Script to run federated learning
+│   │   └── __init__.py
+│   ├── utils/          # Utility functions
+│   │   ├── config.py      # Configuration settings
+│   │   ├── helpers.py     # Helper functions
+│   │   └── __init__.py
+│   ├── evaluation/     # Model evaluation
+│   │   ├── evaluate.py    # Evaluation script
+│   │   └── __init__.py
+│   ├── web_app/        # Web application
+│   │   ├── app.py         # Flask web app
+│   │   └── __init__.py
+│   └── __init__.py
+├── requirements.txt    # Project dependencies
+├── README.md           # Project documentation
+└── run_pipeline.py     # Script to run the entire pipeline
