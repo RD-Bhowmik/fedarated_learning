@@ -25,7 +25,7 @@ NUM_CLASSES = 3
 # Federated learning settings
 NUM_CLIENTS = 3
 NUM_ROUNDS = 20
-LOCAL_EPOCHS = 5
+LOCAL_EPOCHS = 10
 FRACTION_FIT = 1.0  # Fraction of clients used for training in each round
 
 # Privacy settings

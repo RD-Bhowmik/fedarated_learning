@@ -254,7 +254,7 @@ def create_train_val_split(X, y, val_split=VALIDATION_SPLIT, random_state=42):
     """
     return train_test_split(X, y, test_size=val_split, random_state=random_state, stratify=y)
 
-def preprocess_dataset(X, y, output_dir, augmentation_level='standard', preload=False):
+def preprocess_dataset(X, y, output_dir, augmentation_level='advanced', preload=False):
     """
     Preprocess the dataset.
     

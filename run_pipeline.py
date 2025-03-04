@@ -14,6 +14,10 @@ sys.path.append(str(Path(__file__).resolve().parent))
 from src.utils.config import NUM_CLIENTS, NUM_ROUNDS
 from src.utils.helpers import setup_logger
 
+import tensorflow as tf
+print("TensorFlow is using the following GPU(s):", tf.config.list_physical_devices('GPU'))
+
+
 # Set up logger
 logger = setup_logger('pipeline', 'pipeline.log')
 
