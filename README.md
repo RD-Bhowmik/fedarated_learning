@@ -9,6 +9,7 @@ Cervical cancer is one of the most preventable cancers when detected early. This
 ## Dataset
 
 The project uses the Intel MobileODT Cervical Cancer Screening dataset, which contains colposcopy images classified into three types:
+
 - Type 1: Normal cervix
 - Type 2: Cervical intraepithelial neoplasia (CIN)
 - Type 3: Invasive carcinoma
@@ -40,47 +41,62 @@ The project uses the Intel MobileODT Cervical Cancer Screening dataset, which co
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/RD-Bhowmik/fedarated_learning.git
 cd federated-cervical-cancer-detection
 ```
 
+```bash
+sudo apt  install python3.11-venv
+python3.11 -m venv <environment_name>
+source <environment_name>/bin/activate
+pip install --upgrade pip
+pip install tensorflow[and-cuda]
+
+```
+
 2. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. Set up the dataset:
+
 ```bash
 # Instructions for dataset setup
 ```
 
-## Usage
-
 ### Data Preprocessing
+
 ```bash
 python src/data/preprocess.py
 ```
 
 ### Training
+
 ```bash
 python src/federated/server.py
 ```
 
 ### Evaluation
+
 ```bash
 python src/evaluation/evaluate.py
 ```
 
 ### Web Application
+
 ```bash
 python src/web_app/app.py
 ```
 
 ## Contributing
 
-This is a thesis project. Please contact the repository owner for contribution guidelines.
-
+- Ronodeep Bhowmik
+- Anwesha Roy
+- Shaptarshi Saha
 
 ## Acknowledgments
 
